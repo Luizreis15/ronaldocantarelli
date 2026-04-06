@@ -197,8 +197,9 @@ function Carousel({ items }: { items: typeof gallery }) {
             src={item.src}
             alt={item.alt}
             fill
+            sizes="(max-width: 760px) 100vw, (max-width: 1080px) 100vw, 1180px"
             className={styles.carouselImg}
-            style={{ objectPosition: item.position }}
+            style={{ objectFit: 'cover', objectPosition: item.position }}
           />
           <div className={styles.carouselOverlay} />
           <div className={styles.carouselCaption}>

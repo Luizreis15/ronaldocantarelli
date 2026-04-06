@@ -951,6 +951,8 @@
 
 .carousel {
   position: relative;
+  width: 100%;
+  height: auto;
   aspect-ratio: 16 / 7;
   overflow: hidden;
   border-radius: 28px;
@@ -1134,6 +1136,17 @@
   .painGrid,
   .credentialList {
     grid-template-columns: 1fr;
+  }
+
+  /* Carousel: tablet usa 4/3 em vez do 16/7 do desktop */
+  .carousel {
+    aspect-ratio: 4 / 3;
+    border-radius: 22px;
+  }
+
+  .carouselCaption {
+    bottom: 60px;
+    padding: 0 32px;
   }
 
   /* Reset mosaic spans so gallery flows as single column */
