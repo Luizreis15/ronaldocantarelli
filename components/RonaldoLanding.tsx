@@ -309,10 +309,11 @@ export default function RonaldoLanding() {
               <Image
                 src="/images/ronaldo/retrato.jpg"
                 alt="Retrato de Ronaldo Cantarelli"
-                width={1200}
-                height={1500}
+                fill
                 priority
+                sizes="(max-width: 760px) 100vw, (max-width: 1080px) 560px, 500px"
                 className={styles.heroPortrait}
+                style={{ objectFit: 'cover', objectPosition: 'center 15%' }}
               />
               <div className={styles.heroOverlay} />
             </div>

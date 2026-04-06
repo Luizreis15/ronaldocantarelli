@@ -390,7 +390,6 @@
 }
 
 .heroPortrait {
-  object-fit: cover;
   transform: scale(1.01);
   transition: transform 0.8s ease;
   z-index: 0;
@@ -1173,7 +1172,12 @@
   }
 
   .section {
-    padding: 78px 0;
+    padding: 60px 0;
+  }
+
+  .hero {
+    padding-top: 32px;
+    padding-bottom: 48px;
   }
 
   .heroTitle {
