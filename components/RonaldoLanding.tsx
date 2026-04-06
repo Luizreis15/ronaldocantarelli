@@ -69,45 +69,45 @@ const credentials = [
 
 const gallery = [
   {
-    title: 'Retrato',
+    title: 'Ronaldo Cantarelli',
     src: '/images/ronaldo/retrato.jpg',
     alt: 'Retrato de Ronaldo Cantarelli',
-    desc: 'Imagem principal para transmitir autoridade, escuta e maturidade profissional logo nos primeiros segundos da navegação.',
+    desc: 'Psicanalista clínico e terapeuta cristão — com formação técnica, experiência pastoral e escuta responsável para quem está carregando algo pesado por dentro.',
     position: 'center 18%',
   },
   {
     title: 'Família',
     src: '/images/ronaldo/familia.jpg',
     alt: 'Ronaldo com a família',
-    desc: 'Humaniza a página e fortalece a percepção de cuidado, estabilidade, história e coerência de vida.',
+    desc: 'A família não é apenas contexto — é ponto de partida para compreender a história emocional e os padrões que atravessam as relações.',
     position: 'center 30%',
   },
   {
-    title: 'Pregação',
+    title: 'Fé & Cuidado',
     src: '/images/ronaldo/pregacao.jpg',
     alt: 'Ronaldo em pregação',
-    desc: 'Mostra a dimensão pastoral e a coerência entre mensagem, fé, comunicação e presença pública.',
+    desc: 'Fé tratada com maturidade — sem superficialidade religiosa e sem negar a complexidade real do sofrimento humano.',
     position: 'center 24%',
   },
   {
-    title: 'Palestra',
+    title: 'Ensino',
     src: '/images/ronaldo/palestra.jpg',
     alt: 'Ronaldo em palestra',
-    desc: 'Reforça ensino, clareza de fala e capacidade de conduzir encontros e eventos.',
+    desc: 'Uma trajetória construída com anos de comunicação, formação e presença pública — que sustenta a clareza do trabalho clínico.',
     position: 'center 22%',
   },
   {
-    title: 'Atendimento',
+    title: 'Clínica',
     src: '/images/ronaldo/atendimento.jpg',
-    alt: 'Ronaldo em contexto profissional',
-    desc: 'Conecta o visitante ao contexto terapêutico e à atmosfera de acolhimento técnico.',
+    alt: 'Ronaldo em atendimento',
+    desc: 'Um espaço de escuta real — com tempo, direção e responsabilidade clínica para tratar o que está por trás do sintoma, não apenas ao redor dele.',
     position: 'center 18%',
   },
   {
     title: 'Comunidade',
     src: '/images/ronaldo/comunidade.jpg',
     alt: 'Ronaldo em comunidade',
-    desc: 'Fecha a narrativa com pertencimento, serviço e presença pública com sentido.',
+    desc: 'O cuidado se estende além da clínica — para a família, a igreja e os vínculos que formam, sustentam ou adoecem a vida emocional de cada pessoa.',
     position: 'center 20%',
   },
 ]
@@ -167,6 +167,71 @@ function Reveal({ children, delay = 0, className = '' }: RevealProps) {
   )
 }
 
+function Carousel({ items }: { items: typeof gallery }) {
+  const [current, setCurrent] = useState(0)
+  const [paused, setPaused] = useState(false)
+
+  useEffect(() => {
+    if (paused) return
+    const id = setInterval(() => {
+      setCurrent((c) => (c + 1) % items.length)
+    }, 5000)
+    return () => clearInterval(id)
+  }, [paused, items.length])
+
+  const prev = () => setCurrent((c) => (c - 1 + items.length) % items.length)
+  const next = () => setCurrent((c) => (c + 1) % items.length)
+
+  return (
+    <div
+      className={styles.carousel}
+      onMouseEnter={() => setPaused(true)}
+      onMouseLeave={() => setPaused(false)}
+    >
+      {items.map((item, i) => (
+        <div
+          key={item.title}
+          className={`${styles.carouselSlide} ${i === current ? styles.carouselActive : ''}`}
+        >
+          <Image
+            src={item.src}
+            alt={item.alt}
+            fill
+            className={styles.carouselImg}
+            style={{ objectPosition: item.position }}
+          />
+          <div className={styles.carouselOverlay} />
+          <div className={styles.carouselCaption}>
+            <h3 className={styles.carouselTitle}>{item.title}</h3>
+            <p className={styles.carouselDesc}>{item.desc}</p>
+          </div>
+        </div>
+      ))}
+
+      <div className={styles.carouselNav}>
+        <button onClick={prev} className={styles.carouselArrow} aria-label="Anterior">
+          {'‹'}
+        </button>
+        <div className={styles.carouselDots}>
+          {items.map((_, i) => (
+            <button
+              key={i}
+              onClick={() => setCurrent(i)}
+              className={`${styles.carouselDot} ${i === current ? styles.carouselDotActive : ''}`}
+              aria-label={`Slide ${i + 1}`}
+            />
+          ))}
+        </div>
+        <button onClick={next} className={styles.carouselArrow} aria-label="Próximo">
+          {'›'}
+        </button>
+      </div>
+
+      <div key={current} className={styles.carouselBar} />
+    </div>
+  )
+}
+
 export default function RonaldoLanding() {
   const [openFaq, setOpenFaq] = useState<number | null>(0)
 
@@ -222,11 +287,12 @@ export default function RonaldoLanding() {
         className={`${styles.section} ${styles.dark} ${styles.hero}`}
       >
         <div className={`${styles.container} ${styles.heroGrid}`}>
-          <Reveal className={styles.heroCopy}>
+
+          {/* 1 — Headline */}
+          <Reveal className={styles.heroHeadline}>
             <p className={styles.heroKicker}>
               Psicanalista Clínico · Terapeuta Cristão
             </p>
-
             <h1 className={styles.heroTitle}>
               Quando a dor emocional
               <br />
@@ -234,42 +300,9 @@ export default function RonaldoLanding() {
               <br />
               direção e presença real.
             </h1>
-
-            <p className={styles.heroText}>
-              Acompanhamento psicanalítico para adultos, casais e famílias que
-              enfrentam sofrimento emocional, conflitos relacionais e padrões
-              repetitivos que já estão afetando a vida por dentro e por fora.
-            </p>
-
-            <div className={styles.heroActions}>
-              <a
-                href={whatsappAtendimento}
-                target="_blank"
-                rel="noopener noreferrer"
-                className={styles.btnPrimary}
-              >
-                Agendar atendimento
-              </a>
-
-              <a
-                href={whatsappPalestra}
-                target="_blank"
-                rel="noopener noreferrer"
-                className={styles.btnSecondary}
-              >
-                Agendar palestra ou pregação
-              </a>
-            </div>
-
-            <div className={styles.heroMeta}>
-              {heroMeta.map((item) => (
-                <div key={item} className={styles.metaCard}>
-                  {item}
-                </div>
-              ))}
-            </div>
           </Reveal>
 
+          {/* 2 — Imagem */}
           <Reveal delay={120} className={styles.heroVisual}>
             <div className={styles.heroFrame}>
               <Image
@@ -282,18 +315,56 @@ export default function RonaldoLanding() {
               />
               <div className={styles.heroOverlay} />
             </div>
-
             <div className={styles.heroFloat}>
               <strong>17+ anos</strong>
               Comunicação, liderança e cuidado de pessoas — formação técnica e presença pastoral.
             </div>
           </Reveal>
+
+          {/* 3 — Subtítulo */}
+          <Reveal delay={80} className={styles.heroSub}>
+            <p className={styles.heroText}>
+              Acompanhamento psicanalítico para adultos, casais e famílias que
+              enfrentam sofrimento emocional, conflitos relacionais e padrões
+              repetitivos que já estão afetando a vida por dentro e por fora.
+            </p>
+          </Reveal>
+
+          {/* 4 — Botões */}
+          <Reveal delay={160} className={styles.heroBottom}>
+            <div className={styles.heroActions}>
+              <a
+                href={whatsappAtendimento}
+                target="_blank"
+                rel="noopener noreferrer"
+                className={styles.btnPrimary}
+              >
+                Agendar atendimento
+              </a>
+              <a
+                href={whatsappPalestra}
+                target="_blank"
+                rel="noopener noreferrer"
+                className={styles.btnSecondary}
+              >
+                Agendar palestra ou pregação
+              </a>
+            </div>
+            <div className={styles.heroMeta}>
+              {heroMeta.map((item) => (
+                <div key={item} className={styles.metaCard}>
+                  {item}
+                </div>
+              ))}
+            </div>
+          </Reveal>
+
         </div>
       </section>
 
       <section className={`${styles.section} ${styles.light}`}>
-        <div className={`${styles.container} ${styles.split}`}>
-          <Reveal>
+        <div className={styles.container}>
+          <Reveal className={styles.sectionHeader}>
             <p className={styles.label}>Para quem é</p>
 
             <h2 className={styles.title}>
@@ -307,21 +378,23 @@ export default function RonaldoLanding() {
               família e seguem em frente — mas por dentro estão emocionalmente
               feridas e tentando manter de pé o que já começa a ruir.
             </p>
-
-            <div className={styles.statsRow}>
-              {stats.map((item) => (
-                <div key={item.number} className={styles.statCard}>
-                  <div className={styles.statNumber}>{item.number}</div>
-                  <div className={styles.statLabel}>{item.label}</div>
-                </div>
-              ))}
-            </div>
           </Reveal>
 
           <div className={styles.painGrid}>
             {pains.map((pain, index) => (
               <Reveal key={pain} delay={index * 70}>
                 <div className={styles.painCard}>{pain}</div>
+              </Reveal>
+            ))}
+          </div>
+
+          <div className={styles.statsRow}>
+            {stats.map((item) => (
+              <Reveal key={item.number} delay={100}>
+                <div className={styles.statCard}>
+                  <div className={styles.statNumber}>{item.number}</div>
+                  <div className={styles.statLabel}>{item.label}</div>
+                </div>
               </Reveal>
             ))}
           </div>
@@ -360,8 +433,8 @@ export default function RonaldoLanding() {
       </section>
 
       <section id="sobre" className={`${styles.section} ${styles.warm}`}>
-        <div className={`${styles.container} ${styles.aboutGrid}`}>
-          <Reveal>
+        <div className={styles.container}>
+          <Reveal className={styles.sectionHeader}>
             <p className={styles.label}>Sobre Ronaldo</p>
 
             <h2 className={styles.title}>
@@ -374,13 +447,9 @@ export default function RonaldoLanding() {
               Ronaldo Cantarelli atua com psicanálise clínica e acompanhamento
               terapêutico, com foco na compreensão da dinâmica emocional,
               conflitos relacionais e processos subjetivos que impactam a vida
-              psíquica e familiar.
-            </p>
-
-            <p className={styles.text}>
-              Sua trajetória reúne formação teológica, experiência pastoral,
-              estudos terapêuticos e especialização em terapia familiar — com
-              uma abordagem que une profundidade, firmeza e maturidade.
+              psíquica e familiar. Sua trajetória reúne formação teológica,
+              experiência pastoral e especialização em terapia familiar — com uma
+              abordagem que une profundidade, firmeza e maturidade.
             </p>
 
             <div className={styles.quoteBox}>
@@ -403,43 +472,20 @@ export default function RonaldoLanding() {
       <section id="galeria" className={`${styles.section} ${styles.light}`}>
         <div className={styles.container}>
           <Reveal className={styles.sectionHeader}>
-            <p className={styles.label}>Galeria visual</p>
+            <p className={styles.label}>Quem é Ronaldo</p>
 
             <h2 className={styles.title}>
-              Cada imagem conta
+              Técnica, fé e história
               <br />
-              uma parte da história.
+              que sustentam o cuidado.
             </h2>
 
             <p className={styles.text}>
-              Da escuta clínica à presença pastoral — da vida em família à comunidade. Dimensões reais de uma trajetória que reúne técnica, fé e cuidado responsável.
+              Cada dimensão dessa trajetória — clínica, pastoral, familiar e comunitária — contribui diretamente para a profundidade do acompanhamento que ele oferece.
             </p>
           </Reveal>
 
-          <div className={styles.galleryGrid}>
-            {gallery.map((item, index) => (
-              <Reveal key={item.title} delay={index * 80}>
-                <article className={styles.galleryCard}>
-                  <div className={styles.galleryMedia}>
-                    <Image
-                      src={item.src}
-                      alt={item.alt}
-                      width={1200}
-                      height={900}
-                      className={styles.galleryImg}
-                      style={{ objectPosition: item.position }}
-                    />
-                    <div className={styles.galleryImageOverlay} />
-                  </div>
-
-                  <div className={styles.galleryCopy}>
-                    <h3 className={styles.galleryTitle}>{item.title}</h3>
-                    <p className={styles.galleryDesc}>{item.desc}</p>
-                  </div>
-                </article>
-              </Reveal>
-            ))}
-          </div>
+          <Carousel items={gallery} />
         </div>
       </section>
 
