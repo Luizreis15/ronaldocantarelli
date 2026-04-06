@@ -1,12 +1,37 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="900" viewBox="0 0 1200 900" fill="none">
-  <rect width="1200" height="900" fill="#17110B"/>
-  <rect x="40" y="40" width="1120" height="820" rx="28" stroke="#C9A96E" stroke-opacity="0.32" stroke-width="2"/>
-  <circle cx="600" cy="330" r="110" fill="#2A1D12"/>
-  <path d="M420 690C420 578.366 500.366 498 612 498H588C699.634 498 780 578.366 780 690V720H420V690Z" fill="#2A1D12"/>
-  <text x="600" y="150" text-anchor="middle" fill="#C9A96E" font-size="34" font-family="Georgia, serif" letter-spacing="8">
-    RONALDO CANTARELLI
-  </text>
-  <text x="600" y="790" text-anchor="middle" fill="#E8D9C3" font-size="28" font-family="Arial, sans-serif">
-    Substitua este placeholder por uma foto real
-  </text>
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="800" viewBox="0 0 1200 800">
+  <defs>
+    <radialGradient id="bg" cx="50%" cy="50%" r="75%">
+      <stop offset="0%" stop-color="#1c1208"/>
+      <stop offset="100%" stop-color="#0a0704"/>
+    </radialGradient>
+    <radialGradient id="ambiance" cx="50%" cy="40%" r="50%">
+      <stop offset="0%" stop-color="#C9A96E" stop-opacity="0.1"/>
+      <stop offset="100%" stop-color="#C9A96E" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+  <rect width="1200" height="800" fill="url(#bg)"/>
+  <rect width="1200" height="800" fill="url(#ambiance)"/>
+  <!-- poltrona esquerda (terapeuta) -->
+  <rect x="260" y="490" width="220" height="160" rx="28" fill="#1f140a" stroke="#C9A96E" stroke-opacity="0.15" stroke-width="1"/>
+  <rect x="250" y="440" width="240" height="60" rx="16" fill="#1f140a" stroke="#C9A96E" stroke-opacity="0.15" stroke-width="1"/>
+  <rect x="260" y="490" width="28" height="140" rx="14" fill="#291a0f"/>
+  <rect x="452" y="490" width="28" height="140" rx="14" fill="#291a0f"/>
+  <!-- poltrona direita (paciente) -->
+  <rect x="720" y="490" width="220" height="160" rx="28" fill="#1f140a" stroke="#C9A96E" stroke-opacity="0.15" stroke-width="1"/>
+  <rect x="710" y="440" width="240" height="60" rx="16" fill="#1f140a" stroke="#C9A96E" stroke-opacity="0.15" stroke-width="1"/>
+  <rect x="720" y="490" width="28" height="140" rx="14" fill="#291a0f"/>
+  <rect x="912" y="490" width="28" height="140" rx="14" fill="#291a0f"/>
+  <!-- figura terapeuta sentada -->
+  <ellipse cx="370" cy="330" rx="62" ry="70" fill="#231509"/>
+  <path d="M290 444 Q295 400 330 385 Q348 378 370 376 Q392 378 410 385 Q445 400 450 444Z" fill="#231509"/>
+  <!-- figura paciente sentada -->
+  <ellipse cx="830" cy="335" rx="60" ry="68" fill="#1e1208"/>
+  <path d="M752 444 Q756 402 790 387 Q808 380 830 378 Q852 380 870 387 Q904 402 908 444Z" fill="#1e1208"/>
+  <!-- mesa pequena entre eles -->
+  <ellipse cx="600" cy="530" rx="60" ry="18" fill="#1a0f07" stroke="#C9A96E" stroke-opacity="0.12" stroke-width="1"/>
+  <rect x="588" y="530" width="24" height="60" fill="#1a0f07"/>
+  <!-- linha de chão -->
+  <line x1="180" y1="658" x2="1020" y2="658" stroke="#C9A96E" stroke-opacity="0.08" stroke-width="1"/>
+  <text x="600" y="52" text-anchor="middle" fill="#C9A96E" font-size="12" font-family="Georgia, serif" letter-spacing="6" opacity="0.7">ATENDIMENTO</text>
+  <text x="600" y="748" text-anchor="middle" fill="#C9A96E" font-size="10" font-family="Arial, sans-serif" letter-spacing="4" opacity="0.4">ESCUTA — substituir por foto real</text>
 </svg>

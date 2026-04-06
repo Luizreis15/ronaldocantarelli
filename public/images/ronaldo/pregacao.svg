@@ -1,12 +1,27 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="900" viewBox="0 0 1200 900" fill="none">
-  <rect width="1200" height="900" fill="#17110B"/>
-  <rect x="40" y="40" width="1120" height="820" rx="28" stroke="#C9A96E" stroke-opacity="0.32" stroke-width="2"/>
-  <circle cx="600" cy="330" r="110" fill="#2A1D12"/>
-  <path d="M420 690C420 578.366 500.366 498 612 498H588C699.634 498 780 578.366 780 690V720H420V690Z" fill="#2A1D12"/>
-  <text x="600" y="150" text-anchor="middle" fill="#C9A96E" font-size="34" font-family="Georgia, serif" letter-spacing="8">
-    RONALDO CANTARELLI
-  </text>
-  <text x="600" y="790" text-anchor="middle" fill="#E8D9C3" font-size="28" font-family="Arial, sans-serif">
-    Substitua este placeholder por uma foto real
-  </text>
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="800" viewBox="0 0 1200 800">
+  <defs>
+    <radialGradient id="bg" cx="50%" cy="30%" r="65%">
+      <stop offset="0%" stop-color="#231507"/>
+      <stop offset="100%" stop-color="#0b0704"/>
+    </radialGradient>
+    <radialGradient id="spotlight" cx="50%" cy="0%" r="60%">
+      <stop offset="0%" stop-color="#C9A96E" stop-opacity="0.28"/>
+      <stop offset="100%" stop-color="#C9A96E" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+  <rect width="1200" height="800" fill="url(#bg)"/>
+  <rect width="1200" height="800" fill="url(#spotlight)"/>
+  <!-- púlpito -->
+  <path d="M500 600 L530 460 L670 460 L700 600Z" fill="#1e1209" stroke="#C9A96E" stroke-opacity="0.2" stroke-width="1"/>
+  <rect x="520" y="455" width="160" height="8" rx="4" fill="#C9A96E" opacity="0.3"/>
+  <!-- figura pregador -->
+  <ellipse cx="600" cy="340" rx="68" ry="76" fill="#2e1e10"/>
+  <path d="M490 468 Q495 415 530 400 Q562 388 600 385 Q638 388 670 400 Q705 415 710 468Z" fill="#2e1e10"/>
+  <!-- braço gesticulando -->
+  <path d="M680 420 Q720 390 748 368" stroke="#2e1e10" stroke-width="28" stroke-linecap="round" fill="none"/>
+  <!-- luz de cima -->
+  <ellipse cx="600" cy="180" rx="80" ry="40" fill="#C9A96E" opacity="0.06"/>
+  <line x1="600" y1="220" x2="600" y2="380" stroke="#C9A96E" stroke-opacity="0.04" stroke-width="60"/>
+  <text x="600" y="52" text-anchor="middle" fill="#C9A96E" font-size="12" font-family="Georgia, serif" letter-spacing="6" opacity="0.7">PREGAÇÃO</text>
+  <text x="600" y="748" text-anchor="middle" fill="#C9A96E" font-size="10" font-family="Arial, sans-serif" letter-spacing="4" opacity="0.4">MINISTÉRIO — substituir por foto real</text>
 </svg>

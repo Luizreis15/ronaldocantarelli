@@ -4,8 +4,11 @@ import Image from 'next/image'
 import { useEffect, useState, type ReactNode } from 'react'
 import styles from './RonaldoLanding.module.css'
 
-const whatsappLink =
+const whatsappAtendimento =
   'https://wa.me/5511988396576?text=Ol%C3%A1%2C%20Elaine!%20Vim%20pelo%20site%20do%20Ronaldo%20Cantarelli%20e%20gostaria%20de%20agendar%20um%20atendimento.'
+
+const whatsappPalestra =
+  'https://wa.me/5511988396576?text=Ol%C3%A1%2C%20Elaine!%20Vim%20pelo%20site%20do%20Ronaldo%20Cantarelli%20e%20gostaria%20de%20agendar%20uma%20palestra%20ou%20prega%C3%A7%C3%A3o%20com%20o%20Ronaldo.'
 
 const heroMeta = ['Psicanálise Clínica', 'Terapia Familiar', 'Lagoinha Morumbi']
 
@@ -58,7 +61,7 @@ const services = [
 
 const credentials = [
   'Psicanalista Clínico',
-  'Especialização em Terapia Familiar',
+  'Pós-Graduado em Terapia Familiar',
   'Pastor — Igreja Batista da Lagoinha Morumbi',
   'Professor Global de Teologia — Seminário Carisma',
   '17+ anos em comunicação e liderança',
@@ -66,46 +69,46 @@ const credentials = [
 
 const gallery = [
   {
-    tag: 'Presença clínica',
     title: 'Retrato',
-    desc: 'Imagem principal para transmitir autoridade, escuta e maturidade profissional logo nos primeiros segundos da navegação.',
-    src: '/images/ronaldo/retrato.svg',
+    src: '/images/ronaldo/retrato.jpg',
     alt: 'Retrato de Ronaldo Cantarelli',
+    desc: 'Imagem principal para transmitir autoridade, escuta e maturidade profissional logo nos primeiros segundos da navegação.',
+    position: 'center 18%',
   },
   {
-    tag: 'Vínculos',
     title: 'Família',
+    src: '/images/ronaldo/familia.jpg',
+    alt: 'Ronaldo com a família',
     desc: 'Humaniza a página e fortalece a percepção de cuidado, estabilidade, história e coerência de vida.',
-    src: '/images/ronaldo/familia.svg',
-    alt: 'Ronaldo Cantarelli com a família',
+    position: 'center 30%',
   },
   {
-    tag: 'Ministério',
     title: 'Pregação',
+    src: '/images/ronaldo/pregacao.jpg',
+    alt: 'Ronaldo em pregação',
     desc: 'Mostra a dimensão pastoral e a coerência entre mensagem, fé, comunicação e presença pública.',
-    src: '/images/ronaldo/pregacao.svg',
-    alt: 'Ronaldo Cantarelli em pregação',
+    position: 'center 24%',
   },
   {
-    tag: 'Autoridade pública',
     title: 'Palestra',
-    desc: 'Reforça ensino, clareza de fala e capacidade de conduzir reflexões com profundidade.',
-    src: '/images/ronaldo/palestra.svg',
-    alt: 'Ronaldo Cantarelli em palestra',
+    src: '/images/ronaldo/palestra.jpg',
+    alt: 'Ronaldo em palestra',
+    desc: 'Reforça ensino, clareza de fala e capacidade de conduzir encontros e eventos.',
+    position: 'center 22%',
   },
   {
-    tag: 'Escuta',
     title: 'Atendimento',
-    desc: 'Conecta o visitante ao contexto terapêutico e aproxima a experiência de uma proposta clínica real.',
-    src: '/images/ronaldo/atendimento.svg',
-    alt: 'Ronaldo Cantarelli em atendimento',
+    src: '/images/ronaldo/atendimento.jpg',
+    alt: 'Ronaldo em contexto profissional',
+    desc: 'Conecta o visitante ao contexto terapêutico e à atmosfera de acolhimento técnico.',
+    position: 'center 18%',
   },
   {
-    tag: 'Missão',
     title: 'Comunidade',
-    desc: 'Fecha a narrativa com pertencimento, serviço e impacto no ambiente ao redor.',
-    src: '/images/ronaldo/comunidade.svg',
-    alt: 'Ronaldo Cantarelli em comunidade',
+    src: '/images/ronaldo/comunidade.jpg',
+    alt: 'Ronaldo em comunidade',
+    desc: 'Fecha a narrativa com pertencimento, serviço e presença pública com sentido.',
+    position: 'center 20%',
   },
 ]
 
@@ -204,7 +207,7 @@ export default function RonaldoLanding() {
           </nav>
 
           <a
-            href={whatsappLink}
+            href={whatsappAtendimento}
             target="_blank"
             rel="noopener noreferrer"
             className={styles.navBtn}
@@ -240,16 +243,21 @@ export default function RonaldoLanding() {
 
             <div className={styles.heroActions}>
               <a
-                href={whatsappLink}
+                href={whatsappAtendimento}
                 target="_blank"
                 rel="noopener noreferrer"
                 className={styles.btnPrimary}
               >
-                Agendar pelo WhatsApp
+                Agendar atendimento
               </a>
 
-              <a href="#servicos" className={styles.btnSecondary}>
-                Conhecer os serviços
+              <a
+                href={whatsappPalestra}
+                target="_blank"
+                rel="noopener noreferrer"
+                className={styles.btnSecondary}
+              >
+                Agendar palestra ou pregação
               </a>
             </div>
 
@@ -265,7 +273,7 @@ export default function RonaldoLanding() {
           <Reveal delay={120} className={styles.heroVisual}>
             <div className={styles.heroFrame}>
               <Image
-                src="/images/ronaldo/retrato.svg"
+                src="/images/ronaldo/retrato.jpg"
                 alt="Retrato de Ronaldo Cantarelli"
                 width={1200}
                 height={1500}
@@ -273,13 +281,11 @@ export default function RonaldoLanding() {
                 className={styles.heroPortrait}
               />
               <div className={styles.heroOverlay} />
-              <div className={styles.heroFrameLabel}>Retrato Principal</div>
             </div>
 
             <div className={styles.heroFloat}>
-              <strong>Posicionamento</strong>
-              Uma presença clínica e pastoral que transmite profundidade,
-              maturidade e acolhimento responsável.
+              <strong>17+ anos</strong>
+              Comunicação, liderança e cuidado de pessoas — formação técnica e presença pastoral.
             </div>
           </Reveal>
         </div>
@@ -400,15 +406,13 @@ export default function RonaldoLanding() {
             <p className={styles.label}>Galeria visual</p>
 
             <h2 className={styles.title}>
-              Mais presença humana,
+              Cada imagem conta
               <br />
-              mais conexão e mais autoridade.
+              uma parte da história.
             </h2>
 
             <p className={styles.text}>
-              Nesta versão, a galeria já entra com mais força visual e mais
-              ritmo editorial. Quando as fotos reais chegarem, basta substituir
-              os arquivos da pasta e a estrutura continuará pronta.
+              Da escuta clínica à presença pastoral — da vida em família à comunidade. Dimensões reais de uma trajetória que reúne técnica, fé e cuidado responsável.
             </p>
           </Reveal>
 
@@ -416,16 +420,16 @@ export default function RonaldoLanding() {
             {gallery.map((item, index) => (
               <Reveal key={item.title} delay={index * 80}>
                 <article className={styles.galleryCard}>
-                  <div className={styles.galleryImage}>
+                  <div className={styles.galleryMedia}>
                     <Image
                       src={item.src}
                       alt={item.alt}
                       width={1200}
                       height={900}
                       className={styles.galleryImg}
+                      style={{ objectPosition: item.position }}
                     />
                     <div className={styles.galleryImageOverlay} />
-                    <span className={styles.galleryBadge}>{item.tag}</span>
                   </div>
 
                   <div className={styles.galleryCopy}>
@@ -528,16 +532,21 @@ export default function RonaldoLanding() {
 
               <div className={styles.ctaActions}>
                 <a
-                  href={whatsappLink}
+                  href={whatsappAtendimento}
                   target="_blank"
                   rel="noopener noreferrer"
                   className={styles.btnPrimary}
                 >
-                  Falar no WhatsApp
+                  Agendar atendimento
                 </a>
 
-                <a href="#galeria" className={styles.btnSecondary}>
-                  Ver a galeria
+                <a
+                  href={whatsappPalestra}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className={styles.btnSecondary}
+                >
+                  Agendar palestra ou pregação
                 </a>
               </div>
             </div>
@@ -556,7 +565,7 @@ export default function RonaldoLanding() {
             <a href="#faq">Dúvidas</a>
           </div>
 
-          <p>© 2025 Ronaldo Cantarelli · Psicanalista Clínico</p>
+          <p>© 2026 Ronaldo Cantarelli · Psicanalista Clínico</p>
         </div>
       </footer>
     </main>
