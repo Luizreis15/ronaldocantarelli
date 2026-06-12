@@ -7,8 +7,7 @@ import styles from './RonaldoLanding.module.css'
 const whatsappAtendimento =
   'https://wa.me/5511988396576?text=Ol%C3%A1%2C%20Elaine!%20Vim%20pelo%20site%20do%20Ronaldo%20Cantarelli%20e%20gostaria%20de%20agendar%20um%20atendimento.'
 
-const whatsappPalestra =
-  'https://wa.me/5511988396576?text=Ol%C3%A1%2C%20Elaine!%20Vim%20pelo%20site%20do%20Ronaldo%20Cantarelli%20e%20gostaria%20de%20agendar%20uma%20palestra%20ou%20prega%C3%A7%C3%A3o%20com%20o%20Ronaldo.'
+const whatsappPalestra = 'https://wa.link/5j49rx'
 
 const heroMeta = ['Psicanálise Clínica', 'Terapia Familiar', 'Lagoinha Morumbi']
 
