@@ -964,11 +964,12 @@
 .carousel {
   position: relative;
   width: 100%;
+  max-width: 560px;
   height: auto;
-  aspect-ratio: 16 / 7;
+  aspect-ratio: 3 / 4;
   overflow: hidden;
   border-radius: 28px;
-  margin-top: 48px;
+  margin: 48px auto 0;
   background: var(--bg-dark-3);
 }
 
@@ -1109,15 +1110,8 @@
     grid-template-columns: 1fr;
   }
 
-  /* Carousel: tablet usa 4/3 em vez do 16/7 do desktop */
   .carousel {
-    aspect-ratio: 4 / 3;
     border-radius: 22px;
-  }
-
-  /* Imagens já trazem título/texto desenhados — contain evita cortar o conteúdo */
-  .carouselImg {
-    object-fit: contain;
   }
 
   .respiroRow {
@@ -1208,7 +1202,6 @@
   }
 
   .carousel {
-    aspect-ratio: 4 / 5;
     border-radius: 18px;
     margin-top: 32px;
   }
