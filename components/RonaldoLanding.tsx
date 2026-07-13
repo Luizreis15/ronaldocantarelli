@@ -68,46 +68,19 @@ const credentials = [
 
 const gallery = [
   {
-    title: 'Ronaldo Cantarelli',
-    src: '/images/ronaldo/retrato.jpg',
-    alt: 'Retrato de Ronaldo Cantarelli',
-    desc: 'Psicanalista clínico e terapeuta cristão — com formação técnica, experiência pastoral e escuta responsável para quem está carregando algo pesado por dentro.',
-    position: 'center 18%',
-  },
-  {
-    title: 'Família',
-    src: '/images/ronaldo/familia.jpg',
-    alt: 'Ronaldo com a família',
-    desc: 'A família não é apenas contexto — é ponto de partida para compreender a história emocional e os padrões que atravessam as relações.',
-    position: 'center 30%',
+    title: 'Clínica',
+    src: '/images/ronaldo/Galeria_1.png',
+    alt: 'Ronaldo Cantarelli — Clínica: um espaço de escuta real, com tempo, direção e responsabilidade clínica para tratar o que está por trás do sintoma.',
   },
   {
     title: 'Fé & Cuidado',
-    src: '/images/ronaldo/pregacao.jpg',
-    alt: 'Ronaldo em pregação',
-    desc: 'Fé tratada com maturidade — sem superficialidade religiosa e sem negar a complexidade real do sofrimento humano.',
-    position: 'center 24%',
+    src: '/images/ronaldo/Galeria_2.png',
+    alt: 'Ronaldo Cantarelli — Fé & Cuidado: fé vivida com maturidade, sem superficialidade religiosa e sem negar a complexidade real do sofrimento humano.',
   },
   {
-    title: 'Ensino',
-    src: '/images/ronaldo/palestra.jpg',
-    alt: 'Ronaldo em palestra',
-    desc: 'Uma trajetória construída com anos de comunicação, formação e presença pública — que sustenta a clareza do trabalho clínico.',
-    position: 'center 22%',
-  },
-  {
-    title: 'Clínica',
-    src: '/images/ronaldo/atendimento.jpg',
-    alt: 'Ronaldo em atendimento',
-    desc: 'Um espaço de escuta real — com tempo, direção e responsabilidade clínica para tratar o que está por trás do sintoma, não apenas ao redor dele.',
-    position: 'center 18%',
-  },
-  {
-    title: 'Comunidade',
-    src: '/images/ronaldo/comunidade.jpg',
-    alt: 'Ronaldo em comunidade',
-    desc: 'O cuidado se estende além da clínica — para a família, a igreja e os vínculos que formam, sustentam ou adoecem a vida emocional de cada pessoa.',
-    position: 'center 20%',
+    title: 'Família',
+    src: '/images/ronaldo/Galeria_3.png',
+    alt: 'Ronaldo Cantarelli com a família — a base de tudo, onde fé, amor e crescimento andam juntos todos os dias.',
   },
 ]
 
@@ -198,13 +171,7 @@ function Carousel({ items }: { items: typeof gallery }) {
             fill
             sizes="(max-width: 760px) 100vw, (max-width: 1080px) 100vw, 1180px"
             className={styles.carouselImg}
-            style={{ objectFit: 'cover', objectPosition: item.position }}
           />
-          <div className={styles.carouselOverlay} />
-          <div className={styles.carouselCaption}>
-            <h3 className={styles.carouselTitle}>{item.title}</h3>
-            <p className={styles.carouselDesc}>{item.desc}</p>
-          </div>
         </div>
       ))}
 
@@ -306,13 +273,13 @@ export default function RonaldoLanding() {
           <Reveal delay={120} className={styles.heroVisual}>
             <div className={styles.heroFrame}>
               <Image
-                src="/images/ronaldo/retrato.jpg"
+                src="/images/ronaldo/Hero.png"
                 alt="Retrato de Ronaldo Cantarelli"
                 fill
                 priority
                 sizes="(max-width: 760px) 100vw, (max-width: 1080px) 560px, 500px"
                 className={styles.heroPortrait}
-                style={{ objectFit: 'cover', objectPosition: 'center 15%' }}
+                style={{ objectFit: 'cover', objectPosition: 'center 12%' }}
               />
               <div className={styles.heroOverlay} />
             </div>
@@ -430,6 +397,25 @@ export default function RonaldoLanding() {
               </Reveal>
             ))}
           </div>
+
+          <Reveal delay={360} className={styles.respiroRow}>
+            <div className={styles.heroFrame}>
+              <Image
+                src="/images/ronaldo/Descanso.png"
+                alt="Ronaldo Cantarelli"
+                fill
+                sizes="(max-width: 760px) 100vw, (max-width: 1080px) 480px, 440px"
+                className={styles.heroPortrait}
+                style={{ objectFit: 'cover', objectPosition: 'center 12%' }}
+              />
+              <div className={styles.heroOverlay} />
+            </div>
+            <div className={styles.quoteBox}>
+              “A seriedade do cuidado começa antes da sessão — na formação,
+              na escuta e na responsabilidade de tratar cada história com
+              profundidade.”
+            </div>
+          </Reveal>
         </div>
       </section>
 
