@@ -112,7 +112,7 @@ export default function LinksPage() {
         <section className={styles.hero}>
           {/* eslint-disable-next-line @next/next/no-img-element */}
           <img
-            src="/images/ronaldo/retrato.jpg"
+            src="/images/ronaldo/Hero.png"
             alt="Ronaldo Cantarelli"
             className={styles.heroImg}
           />
@@ -188,8 +188,8 @@ export default function LinksPage() {
             <div className={styles.aboutMedia}>
               {/* eslint-disable-next-line @next/next/no-img-element */}
               <img
-                src="/images/ronaldo/atendimento.jpg"
-                alt="Ronaldo em atendimento"
+                src="/images/ronaldo/Descanso.png"
+                alt="Ronaldo Cantarelli"
                 className={styles.aboutImg}
               />
               <div className={styles.aboutMediaOverlay}>
